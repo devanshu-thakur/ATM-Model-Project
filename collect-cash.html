@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>collect</title>
+    <style>
+            body { 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+} 
+
+.atm-container { 
+  position: relative; 
+  display: block; 
+  width: 100vw; 
+  height: 100vh; 
+  box-sizing: border-box; 
+}
+
+#atmScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+  z-index: -1;      
+}
+#pro{
+    color:white;
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <div class="atm-container">
+        <img src="collect-cash.png" class="please-wait" id="atmScreen">
+        <h1 id="pro">Processing Please wait...</h1>
+    </div> 
+    
+</body>
+<script>
+let a = 2;
+if (a === 2) {
+    // Adding ( ... )() executes the async block immediately
+    (async () => {
+        await new Promise(r => setTimeout(r, 4000));
+        window.location.href = "recipt.html"; // Note: ensure "recipt.html" matches your actual filename spelling!
+    })();
+}
+
+</script>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>debit</title>
+    <style>
+        body { 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+} 
+
+.atm-container { 
+  position: relative; 
+  display: block; 
+  width: 100vw; 
+  height: 100vh; 
+  box-sizing: border-box;
+}
+
+#atmScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+  z-index: -1;      
+}
+#credit-text{
+    position: absolute;
+    color: white;
+    background-color: chocolate;
+    left: 10.3%;     /* Adjusted from 696px */
+    top: 30.7%;      /* Adjusted from 790px */
+    font-size: 300%;
+    font-size: 4vw;  /* Scaled smoothly relative to the browser width */
+    border-radius: 30rem;
+    box-sizing: border-box;
+}
+#enter-debit{
+    background-color: chartreuse;
+    color: black;
+    position: absolute;
+left: 60.3%;     /* Adjusted from 743px */
+top: 36.2%;      /* Adjusted from 211px */
+width: 15.0%;    /* Adjust this percentage as needed */
+height: 7.0%;    /* Adjust this percentage as needed */
+border-radius: 1rem;
+font-size: 1.3rem;
+
+
+}
+#debitbtn-next{
+    position: absolute;
+    left: 40.3%;     /* Adjusted from 696px */
+    top: 70.7%;      /* Adjusted from 790px */
+    width: 10.7%;     /* Responsive width */
+    height: 8.3%;    /* Responsive height */
+    background-color: red;
+    color: white;
+    font-size: 2vw;  /* Scaled smoothly relative to the browser width */
+    border-radius: 30rem;
+    box-sizing: border-box;
+}
+#processing{
+    position: absolute;
+left: 30.3%;     /* Adjusted from 535px */
+top: 50.2%;      /* Adjusted from 339px */
+width: 30.0%;    /* Adjust this percentage as needed */
+height: 30.0%;    /* Adjust this percentage as needed */
+border-radius: 1rem;
+display: none; 
+}
+
+#processing[status="show"] {
+    display: block;
+}
+.atm-container {
+    display: block; 
+}
+/* Crucial for your last JS line: Hides the container when status is "hidden" */
+.atm-container[status="hidden"] {
+    display: none !important;
+}
+#less-fund{
+    color:aliceblue;
+position: absolute;
+left: 37.0%;     /* Adjusted from 384px */
+top: 55.9%;      /* Adjusted from 327px */
+width: 50.0%;    /* Adjust this percentage as needed */
+height: 5.0%;    /* Adjust this percentage as needed */
+}
+    </style>
+</head>
+<body class="debitpg">
+    <div class="atm-container">
+        <img src="credit.png" id="atmScreen">
+        <div><h1 id="credit-text">Enter the amount to Debit:</h1>
+        <input type="number" class="creditpg" id="enter-debit" placeholder="₹"></div>
+        <button id="debitbtn-next">Next</button>
+        <img src="processing-credit.png" id="processing">
+        <h2 id="less-fund"><i> </i></h2>
+        
+    </div>
+</body>
+<script src="app.js"></script>
+<script>
+        document.querySelector("#processing").setAttribute("status", "hidden");
+         document.querySelector("#debitbtn-next").addEventListener("click",async()=>{
+            let balanceInput = document.querySelector("#enter-debit").value;
+        
+        if(balanceInput>0 && balanceInput!==""){
+            if((Number(localStorage.getItem("mySavedNumber")) || 0)>=(Number(document.querySelector("#enter-debit").value) || 0)){
+                let balance = (Number(localStorage.getItem("mySavedNumber")) || 0)-
+                      (Number(document.querySelector("#enter-debit").value) || 0);
+                      localStorage.setItem("mySavedNumber", balance);
+                      document.querySelector("#processing").setAttribute("status", "show");
+            await new Promise(r => setTimeout(r, 3000));
+            document.querySelector("#processing").setAttribute("status", "hidden");
+            document.querySelector(".atm-container").setAttribute("status", "hidden");
+            window.location.href="collect-cash.html";
+                    }
+            else{
+                document.querySelector("#less-fund").innerText="Insufficient Funds!"
+            }
+        
+           /* document.querySelector("#processing").setAttribute("status", "show");
+            await new Promise(r => setTimeout(r, 3000));
+            document.querySelector("#processing").setAttribute("status", "hidden");
+            document.querySelector(".atm-container").setAttribute("status", "hidden");
+            window.location.href="collect-cash.html";*/
+        }
+        else {
+                document.querySelector("#less-fund").innerText = "Please enter a valid amount greater than 0.";
+                await new Promise(r => setTimeout(r, 4000));
+                document.querySelector("#less-fund").innerText = "";
+        }
+    })
+
+</script>
+</html>

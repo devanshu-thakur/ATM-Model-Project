@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM</title>
+<style>
+body { 
+  background-image: url("bk1.png"); 
+  background-size: cover; /* Ensures the background image covers the whole screen */
+  background-position: center;
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; /* Removes scrollbars */
+  width: 100vw;
+  height: 100vh;
+} 
+
+.atm-container { 
+  position: relative; 
+  display: block; /* Changed from inline-block to block for better full-screen alignment */
+  
+  /* Makes the container span the exact width and height of the viewport */
+  width: 100vw; 
+  height: 100vh; 
+  
+  /* Uses standard sizing instead of scaling to respect the browser's 100% default font */
+  box-sizing: border-box; 
+}
+
+    #Enter_balance{
+        position: absolute;
+        left: 760px;   
+        top: 370px;
+        background-color: rgb(24, 7, 151);
+        color: white;
+        height: 3rem;
+        width:10rem;
+        font-size: 200%;
+        text-align: center;
+        border-radius: 30rem;   
+    }
+    #Next_pg2{
+        position: absolute;
+        left: 696px;
+        top: 790px;
+        background-color: red;
+        color: white;
+        height: 3rem;
+        width:7rem;
+        font-size: 200%;
+        border-radius: 30rem;
+    }
+</style>
+
+</head>
+<body class="pg1">
+    <div class="atm-container">
+    <img src="bk1.png" id="atmScreen" alt="ATM Screen">
+    <input type="number" id="Enter_balance" placeholder="...">
+    <button id="Next_pg2">Next</button>
+    </div>
+</body>
+<script src="app.js"></script>
+<script>
+
+    document.querySelector("#Next_pg2").addEventListener("click",()=>{
+        window.location.href="pg2.html"
+    })
+</script>
+</html>

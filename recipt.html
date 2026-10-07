@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciept</title>
+    <style>
+       body { 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+}
+
+.atm-container { 
+  position: relative; 
+  display: block; 
+  width: 100vw; 
+  height: 100vh; 
+  box-sizing: border-box; 
+}
+
+#atmScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+  z-index: -1;      
+}
+#atm-id{
+position: absolute;
+left: 20.9%;     /* Adjusted from 449px */
+top: 52.8%;      /* Adjusted from 266px */
+width: 20.0%;    /* Adjust this percentage as needed */
+height: 5.0%;    /* Adjust this percentage as needed */
+}
+#atm-id-name{
+position: absolute;
+left: 60.9%;     /* Adjusted from 449px */
+top: 52.8%;      /* Adjusted from 266px */
+width: 20.0%;    /* Adjust this percentage as needed */
+height: 5.0%;    /* Adjust this percentage as needed */
+}
+#final-recipt{
+    position: absolute;
+left: 20.9%;     /* Adjusted from 449px */
+top: 61.8%;      /* Adjusted from 266px */
+width: 30.0%;    /* Adjust this percentage as needed */
+height: 5.0%;    /* Adjust this percentage as needed */
+}
+#final-balance{
+        position: absolute;
+left: 60.9%;     /* Adjusted from 449px */
+top: 61.8%;      /* Adjusted from 266px */
+width: 30.0%;    /* Adjust this percentage as needed */
+height: 5.0%;    /* Adjust this percentage as needed */
+}
+#greeting{
+position: absolute;
+background-color: aquamarine;
+color:brown;
+left: 35.9%;     /* Adjusted from 449px */
+top: 80.8%;      /* Adjusted from 266px */
+width: 29.0%;    /* Adjust this percentage as needed */
+height: 7.0%;    /* Adjust this percentage as needed */
+border-radius: 1rem;
+}
+#bk-link{
+position: absolute;
+color: white;
+left: 38.9%;     /* Adjusted from 620px */
+top: 1%;      /* Adjusted from 361px */
+width: 30.0%;    /* Adjust this percentage as needed */
+height: 6.0%;    /* Adjust this percentage as needed */
+}
+#faltu{
+position: absolute;
+left: 22.9%;     /* Adjusted from 620px */
+top: 10%;      /* Adjusted from 361px */
+width: 55.0%;    /* Adjust this percentage as needed */
+height: 45.0%;    /* Adjust this percentage as needed */
+border-radius: 1rem;
+}
+#exit{
+position: absolute;
+background-color: rgb(14, 15, 54);
+color:rgb(224, 8, 8);
+left: 47.9%;     /* Adjusted from 449px */
+top: 93.8%;      /* Adjusted from 266px */
+width: 5.0%;    /* Adjust this percentage as needed */
+height: 7.0%;    /* Adjust this percentage as needed */
+border-radius: 1rem;
+}
+#recipt-no{
+position: absolute;
+left: 0%;     /* Adjusted from 449px */
+top: 0%;
+}
+</style>
+
+
+</head>
+<body class="recipt-pg">
+    <div class="atm-container">
+        <img src="recipt.png" id="atmScreen">
+        <h1 id="atm-id">Terminal ID</h1>
+        <h1 id="atm-id-name">ATM-NY-4029</h1>
+        <h1 id="final-recipt">Available Balance:</h1>
+        <h1 id="final-balance"></h1>
+        <h1 id="greeting"> Thank You for banking</h1>
+        <p id="bk-link">Bank link: <u>https://www.google.com/</u></p>
+        <img  src="faltu.png" id="faltu">
+        <button id="exit">Exit</button>
+        <h2 id="recipt-no"></h2>
+    </div>
+</body>
+<script src="app.js"></script>
+<script>
+    let balance = Number(localStorage.getItem("mySavedNumber"))||0;
+    document.querySelector("#final-balance").innerText="₹"+balance+"";
+    let a = 2;
+    if (a === 2) {
+    // Immediately Invoked Function Expression (IIFE)
+    (async () => {
+        document.querySelector("#recipt-no").innerText = "Reciept No.: " + ((balance*7)+23) + " ACRT" + (balance + 1) + "";
+        await new Promise(r => setTimeout(r, 9000));
+         window.location.href = "index.html";
+    })();
+
+    document.querySelector("#exit").addEventListener("click",()=>{
+        window.open("index.html", "_blank");
+    })
+}
+
+</script>
+</html>

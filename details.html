@@ -1,0 +1,108 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details</title>
+</head>
+<body class="details" style="text-align:start;background-color: rgb(188, 113, 0);">
+    <h2>This is XYZ bank.</h2>
+    <h2>Toll free Number:1800-1030.</h2>
+    <h2>Main branch location: abc,bhopal.</h2>
+    <h2>Account Number formate:</h2>
+    <li>Total digits: 13 dig.</li>
+    <li>Password: 4dig</li>
+    <li>Structure: (4+3+6):(branch code+account type+ unique no.)</li>
+    <button id="exist_details">Exit</button>
+    <h1 id="cancel_details"></h1>
+</body>
+<script src="app.js"></script>
+<script>
+  wait1=document.querySelector("#cancel_details");
+  document.querySelector("#exist_details").addEventListener("click",async()=>{
+        wait1.innerText="Please wait...";
+        await new Promise(r => setTimeout(r, 2000));
+        window.location.href="index.html";
+    })
+</script>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: rgb(5, 22, 63);
+            color: white;
+            font-family: sans-serif;
+        }
+
+        #faltu-img {
+            position: absolute;
+left: 60.5%;     /* Adjusted from 833px */
+top: 10.4%;      /* Adjusted from 356px */
+    /* Adjust this percentage as needed */
+            width: 45%;
+            max-width: 450px;
+            border-radius: 1rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        #exit_details {
+            background-color: rgb(14, 15, 54);
+            color: rgb(224, 8, 8);
+            font-size: 1.5rem;
+            padding: 0.5rem 2rem;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        #support{
+            position:absolute;
+            left: 0.5%;     /* Adjusted from 833px */
+            top: 90.4%;
+            font-size: 0.6rem;
+        }
+    </style>
+</head>
+<body class="details"><div>
+    <h2>This is XYZ bank.</h2>
+    <h2>Toll free Number: 1800-1030.</h2>
+    <h2>Main branch location: abc, bhopal.</h2>
+    <h2>Account Number format:</h2>
+    <ul>
+        <li>Total digits: 13 dig.</li>
+        <li>Password: 4 dig</li>
+        <li>Structure: (4+3+6) : (branch code + account type + unique no.)</li>
+    </ul></div></body>
+
+    <img src="faltu.png" id="faltu-img" alt="Card Details">
+
+    <button id="exit_details">Exit</button>
+    <h2 id="cancel_details"></h2>
+     <p id="support">** <br>Terms & Conditions: By continuing, you agree to our standard banking terms, security protocols, and privacy policy. Transactions are subject to identity verification, daily limits, and service charges where applicable. Never share your ATM PIN, passwords, or OTPs with anyone; the bank will never ask for confidential credentials. For disputes or fraudulent reporting, contact 24/7 customer support immediately.
+        <br>Contact to home branch.</p>
+
+    <script>
+        const waitText = document.querySelector("#cancel_details");
+        document.querySelector("#exit_details").addEventListener("click", async () => {
+            waitText.innerText = "Please wait...";
+            await new Promise(r => setTimeout(r, 2000));
+            window.location.href = "pg2.html";
+        });
+    </script>
+</body>
+</html>

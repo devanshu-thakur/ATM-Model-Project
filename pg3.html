@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg3</title>
+<style>
+    body { 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+} 
+
+.atm-container { 
+  position: relative; 
+  display: block; 
+  width: 100vw; 
+  height: 100vh; 
+  box-sizing: border-box; 
+}
+
+#atmScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+  z-index: -1;      
+}
+#creditbtn{
+position: absolute;
+left: 17%;     /* Adjusted from 101px */
+top: 33.3%;      /* Adjusted from 223px */
+
+}
+#debitbtn{
+  position: absolute;
+left: 17%;     /* Adjusted from 106px */
+top: 56.2%;      /* Adjusted from 357px */
+
+}
+#reciptbtn{
+  position: absolute;
+left: 17%;     /* Adjusted from 106px */
+top: 78.2%;      /* Adjusted from 491px */
+
+}
+#cancelbtn{
+  position: absolute;
+left: 65.8%;     /* Adjusted from 411px */
+top: 49.0%;      /* Adjusted from 322px */
+
+}
+.pg3_btn{
+    background-color: red;
+    color: white;
+    font-size: 3vw;  /* Scaled smoothly relative to the browser width */
+    border-radius: 30rem;
+    box-sizing: border-box;
+    width: 20.0%;      /* Adjust this percentage to control your button width */
+    height: 10.0%;      /* Adjust this percentage to control your button height */
+}
+#cancel_wait{
+position: absolute;
+left: 47.8%;     /* Adjusted from 708px */
+top: 79.1%;      /* Adjusted from 474px */
+}
+</style>
+</head>
+
+<body class="pg3">
+    <div class="atm-container">
+        <img src="bk3.png" id="atmScreen">
+        <h1 id="cancel_wait"></h1>
+        <button class="pg3_btn" id="creditbtn">Credit</button>
+    <button class="pg3_btn" id="debitbtn">Debit</button>
+    <button class="pg3_btn" id="cancelbtn">Cancel</button>
+    <button class="pg3_btn" id="reciptbtn">Recipt</button>
+    </div>
+    
+</body>
+<script src="app.js"></script>
+
+<script>
+  wait1=document.querySelector("#cancel_wait");
+  document.querySelector("#cancelbtn").addEventListener("click",async()=>{
+        wait1.innerText="Please wait...";
+        await new Promise(r => setTimeout(r, 2000));
+        window.location.href="index.html";
+    })
+
+    document.querySelector("#creditbtn").addEventListener("click",()=>{
+      window.location.href="credit.html";
+    })
+    document.querySelector("#debitbtn").addEventListener("click",()=>{
+      window.location.href="debit.html";
+    })
+    document.querySelector("#reciptbtn").addEventListener("click",()=>{
+      window.location.href="recipt.html";
+    })
+</script>
+
+</html>

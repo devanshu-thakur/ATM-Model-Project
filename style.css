@@ -1,0 +1,83 @@
+/* .pg1 {
+  background-image: url("bk1.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+}
+.pg2 {
+  background-image: url("bk2.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+}
+.pg3 {
+  background-image: url("bk3.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+}
+#pg2btn{
+  position: absolute;
+  left: 540px;
+  top: 400px;
+  background-color: red;
+  color: white;
+  height: 3rem;
+  width:7rem;
+  font-size: 200%;
+  border-radius: 30rem;
+}
+#balanceonpg2{
+  position: absolute;
+  left: 560px;
+  top: 187px;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 10rem;
+  font-size: 100%;
+  text-align: center;
+  font-size: 150%;
+}
+
+#bkdetailsbtn{
+  position: absolute;
+  left: 115%;
+  top: 208%;
+  background-color: red;
+  color: white;
+  height: 3rem;
+  width:10rem;
+  font-size: 200%;
+  border-radius: 30rem;
+}
+#currentbtn{
+  position: absolute;
+  left: 115px;
+  top: 320px;
+  background-color: red;
+  color: white;
+  height: 3rem;
+  width:10rem;
+  font-size: 200%;
+  border-radius: 30rem;
+}
+#savingbtn{
+  position: absolute;
+  left: 115px;
+  top: 423px;
+  background-color: red;
+  color: white;
+  height: 3rem;
+  width:10rem;
+  font-size: 200%;
+  border-radius: 30rem;
+} */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM</title>
+<style>
+body { 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+} 
+
+.atm-container { 
+  position: relative; 
+  display: block; 
+  width: 100vw; 
+  height: 100vh; 
+  box-sizing: border-box; 
+}
+
+#atmScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+  z-index: -1;      
+}
+
+/* Scaled perfectly to match image dimensions */
+#Enter_balance {
+    position: absolute;
+    left: 48.7%;     /* Adjusted from 760px */
+    top: 40.1%;      /* Adjusted from 370px */
+    width: 19.1%;    /* Responsive width */
+    height: 8.3%;    /* Responsive height */
+    background-color: rgb(16, 8, 45);
+    color: white;
+    font-size: 2vw;  /* Font sizes scale down on small screens, up on large screens */
+    text-align: center;
+    border-radius: 30rem;   
+    box-sizing: border-box;
+}
+
+#Next_pg2 {
+    position: absolute;
+    left: 40.3%;     /* Adjusted from 696px */
+    top: 87.7%;      /* Adjusted from 790px */
+    width: 10.7%;     /* Responsive width */
+    height: 8.3%;    /* Responsive height */
+    background-color: red;
+    color: white;
+    font-size: 2vw;  /* Scaled smoothly relative to the browser width */
+    border-radius: 30rem;
+    box-sizing: border-box;
+}
+#alert{
+    position: absolute;
+    left: 48.8%;     /* Adjusted from 620px */
+top: 50.6%;
+color: white;
+}
+#msg{
+    position: absolute;
+    left: 5.8%;     /* Adjusted from 620px */
+top: 23.6%;
+color: white;
+}
+#model{
+    position: absolute;
+    left: 9.8%;     /* Adjusted from 620px */
+top: 46.6%;
+color: rgb(0, 113, 235);
+}
+
+</style>
+</head>
+<body class="pg1">
+    <div class="atm-container">
+        <!-- The background image fits edge-to-edge now -->
+        <img src="bk1.png" id="atmScreen" alt="ATM Screen">
+        <input type="number" id="Enter_balance" placeholder="₹">
+        <button id="Next_pg2">Next</button>
+        <h3 id="alert"></h3>
+        <h3 id="msg">This is a simulation model. Please enter a demo account balance to proceed.</h3>
+        <h3 id="model">This Atm model  is degin for testing working.</h3>
+    </div>
+</body>
+<script src="app.js"></script>
+<script>
+    document.querySelector("#Next_pg2").addEventListener("click",async()=>{
+        let balanceInput = document.querySelector("#Enter_balance").value;
+        if(balanceInput>0 && balanceInput!==""){
+            let balance=Number(document.querySelector("#Enter_balance").value)||0;
+            localStorage.setItem("mySavedNumber", balance);
+            window.location.href="pg2.html"
+        }
+        else {
+                document.querySelector("#alert").innerText = "Please enter a valid amount greater than 0.";
+                await new Promise(r => setTimeout(r, 4000));
+                document.querySelector("#alert").innerText = "";
+        }
+    })
+</script>
+</html>
